@@ -1,14 +1,75 @@
-<script>
-  function openGame() {
-    var win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    var iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.src = "https://google.com"; // Link to the cloud gaming site
-    win.document.body.appendChild(iframe);
-  }
-</script>
-<button onclick="openGame()">Launch Game</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive</title> <link rel="icon" href="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png"> <style>
+        body {
+            background-color: #202124;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #4285F4; /* Google Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #357ae8;
+        }
+        p {
+            margin-top: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Drive Preview</h2>
+    <button onclick="openCloakedGame()">Launch Workspace</button>
+    <p>Loading secure environment...</p>
+
+    <script>
+        function openCloakedGame() {
+            // 1. Create a new blank window
+            var win = window.open();
+            
+            // 2. This writes the "Disguise" to the NEW tab (Title & Icon)
+            win.document.title = "Google Drive"; 
+            var link = win.document.createElement('link');
+            link.rel = 'icon';
+            link.href = 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png';
+            win.document.head.appendChild(link);
+
+            // 3. Style the body to be full screen
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+
+            // 4. Create the Iframe to hold the game
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            
+            // --- PASTE YOUR GAME URL BELOW ---
+            iframe.src = "https://now.gg/play/roblox-corporation/5349/roblox"; 
+            // ---------------------------------
+
+            // 5. Add the iframe to the new window
+            win.document.body.appendChild(iframe);
+        }
+    </script>
+
+</body>
+</html>
